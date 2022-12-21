@@ -15,6 +15,7 @@
 		crossorigin="anonymous"
 	/>
 <meta charset="UTF-8" />
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<title>Week 6 Git</title>
 </head>
 
@@ -44,16 +45,15 @@
         <button>current</button>
 		<h2 id="city">New York</h2>
 		<h3><div class="temperature" id="temperature-value"> 🌈 <strong>
-				19</strong> <a href="#" id="celcius-value"> °C</a>
-	 | <a href="#" id="fahrenheit-value">°F</a></div>
+				19</strong></div>
 	</div></h3>
 				<span></span>
 			<div class="col-6">
 					<ul>
-							<li>
+							<li id="humidity">
 								Humidity: 77%
 							</li>
-							<li>
+							<li id="wind-speed">
 								Wind: 8 km/h
 							</li>
 						</ul>
