@@ -11,6 +11,14 @@ body {
   border-radius: 10px;
   max-width: 600px;
 }
-.ul {
+ul {
   list-style: none;
+}
+button {
+  background: blueviolet;
+  border: 1px solid whitesmoke;
+  border-radius: 15px;
+  color: black;
+  margin-bottom: 20px;
+  padding: 10px;
 }
