@@ -29,19 +29,6 @@ let month = months[now.getMonth()];
 let dateSpan = document.querySelector("span");
 dateSpan.innerHTML = `${day} ${month} ${date}, ${hours} : ${minutes}, ${year}`;
 
-// challenge 2
-function citySearch(event) {
-  event.preventDefault();
-  let cityName = document.querySelector("#city");
-  let cityNameSearch = document.querySelector("#city-input");
-
-  cityName.innerHTML = cityNameSearch.value;
-}
-let newCity = document.querySelector("#city-search");
-newCity.addEventListener("submit", citySearch);
-
-// challenge 3
-
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureValue = document.querySelector("#temperature-value");
@@ -81,13 +68,18 @@ function showTemperature(response) {
     response.data.weather[0].description;
 }
 
-function showLocation() {
+function showLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "76041d9a817d8a03463272c365662edd";
   let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
-navigator.geolocation.getCurrentLocation(showLocation);
+function getCurrentLocation() {
+  event.preventDefault();
+  navigator.geolocation.getCurrentLocation(showLocation);
+}
+
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentLocation);
