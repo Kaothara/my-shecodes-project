@@ -45,7 +45,7 @@ newCity.addEventListener("submit", citySearch);
 function searchCity(event) {
   event.preventDefault();
   let apiKey = "76041d9a817d8a03463272c365662edd";
-  let city = document.querySelector("#citi-search").value;
+  let city = document.querySelector("#city-search").value;
   let apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric";
   axios.get(apiUrl).then(showTemperature);
@@ -65,4 +65,4 @@ function showTemperature(response) {
     response.data.weather[0].main;
 }
 
-navigator.geolocation.getCurrentPosition(showPosition);
+navigator.geolocation.getCurrentPosition(showTemperature);
