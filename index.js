@@ -88,8 +88,6 @@ function showLocation() {
   let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 }
 
-function getCurrentLocation() {
-  navigator.geolocation.getCurrentLocation(showLocation);
-}
+navigator.geolocation.getCurrentLocation(showLocation);
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentLocation);
