@@ -29,6 +29,16 @@ let month = months[now.getMonth()];
 let dateSpan = document.querySelector("span");
 dateSpan.innerHTML = `${day} ${month} ${date}, ${hours} : ${minutes}, ${year}`;
 
+function citySearch(event) {
+  event.preventDefault();
+  let cityName = document.querySelector("#city");
+  let cityNameSearch = document.querySelector("#city-input");
+
+  cityName.innerHTML = cityNameSearch.value;
+}
+let newCity = document.querySelector("#city-search");
+newCity.addEventListener("submit", citySearch);
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureValue = document.querySelector("#temperature-value");
