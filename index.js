@@ -33,26 +33,36 @@ dateSpan.innerHTML = `${day} ${month} ${date}, ${hours} : ${minutes}, ${year}`;
 function citySearch(event) {
   event.preventDefault();
   let cityName = document.querySelector("#city");
-  let cityNameSearch = document.querySelector("#city-form");
+  let cityNameSearch = document.querySelector("#city-input");
 
   cityName.innerHTML = cityNameSearch.value;
 }
-let newCity = document.querySelector("#city-form");
+let newCity = document.querySelector("#city-search");
 newCity.addEventListener("submit", citySearch);
 
 // challenge 3
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureValue = document.querySelector("#temperature-value");
-  temperatureValue.innerHTML = 25;
-}
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperatureValue = document.querySelector("#temperature-value");
-  temperatureValue.innerHTML = 32;
-}
-let fahrenheitValue = document.querySelector("#fahrenheit-value");
-fahrenheitValue.addEventListener("click", convertToFahrenheit);
 
-let celciusValue = document.querySelector("#celcius-value");
-celciusValue.addEventListener("click", convertToCelcius);
+function searchCity(event) {
+  event.preventDefault();
+  let apiKey = "76041d9a817d8a03463272c365662edd";
+  let city = document.querySelector("#citi-search").value;
+  let apiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric";
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function showTemperature(response) {
+  console.log(response.data);
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector(
+    "#temperature-value"
+  ).innerHTML = `Math.round(response.data.main.temp)℃`;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+}
+
+navigator.geolocation.getCurrentPosition(showPosition);
