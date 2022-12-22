@@ -42,6 +42,23 @@ newCity.addEventListener("submit", citySearch);
 
 // challenge 3
 
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureValue = document.querySelector("#temperature-value");
+  temperatureValue.innerHTML = 25;
+}
+function convertToCelcius(event) {
+  event.preventDefault();
+  let temperatureValue = document.querySelector("#temperature-value");
+  temperatureValue.innerHTML = 32;
+}
+let fahrenheitValue = document.querySelector("#fahrenheit-value");
+fahrenheitValue.addEventListener("click", convertToFahrenheit);
+
+let celciusValue = document.querySelector("#celcius-value");
+celciusValue.addEventListener("click", convertToCelcius);
+
+//API Challenge
 function searchCity(event) {
   event.preventDefault();
   let apiKey = "76041d9a817d8a03463272c365662edd";
