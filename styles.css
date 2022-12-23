@@ -21,4 +21,11 @@ button {
   color: black;
   margin-bottom: 20px;
   padding: 10px;
+  display: block;
+  margin: 0 auto;
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  background: #69635a;
+  cursor: pointer;
 }
