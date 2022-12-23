@@ -15,13 +15,14 @@
 		crossorigin="anonymous"
 	/>
 <meta charset="UTF-8" />
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 	<title>Week 6 Git</title>
 </head>
 
 <body>
 	<div id="app"> 
 	<div class="container">
+        <h1></h1>
 		<form class="city-search" id="city-search">
 			<div class="row">
 				<div class="col-9">
@@ -43,7 +44,7 @@
 				</div>
 			</div>
 		</form>
-        <button>current</button>
+        <button>current Location</button>
 		<h2 id="city">New York</h2>
 		<h3><div class="temperature" id="temperature-value"> 🌈 <strong>
 				19</strong> <a href="#" id="celcius-value"> °C</a>
@@ -53,11 +54,11 @@
 				<span></span>
 			<div class="col-6">
 					<ul>
-							<li id="humidity">
-								Humidity: 77%
-							</li>
-							<li id="wind-speed">
-								Wind: 8 km/h
+							<li> Humidity:
+                                <span id="humidity"> 77</span> 
+							%</li>
+							<li>Wind:
+                                <span id="wind-speed">8 </span>km/h
 							</li>
 						</ul>
 			</div>
