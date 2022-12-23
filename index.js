@@ -92,7 +92,7 @@ function showLocation(position) {
 
 function getCurrentLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentLocation(showLocation);
+  navigator.geolocation.getCurrentPosition(showLocation);
 }
 
 let button = document.querySelector("button");
