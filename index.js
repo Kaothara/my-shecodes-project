@@ -56,11 +56,10 @@ let celciusValue = document.querySelector("#celcius-value");
 celciusValue.addEventListener("click", convertToCelcius);
 
 //API Challenge
-function searchCity() {
+function searchCity(city) {
   let apiKey = "76041d9a817d8a03463272c365662edd";
-  let apiUrl =
-    "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric";
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function showTemperature(response) {
