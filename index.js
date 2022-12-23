@@ -56,7 +56,7 @@ let celciusValue = document.querySelector("#celcius-value");
 celciusValue.addEventListener("click", convertToCelcius);
 
 //API Challenge
-function searchCity(city) {
+function searchCity() {
   let apiKey = "76041d9a817d8a03463272c365662edd";
   let apiUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric";
@@ -64,6 +64,7 @@ function searchCity(city) {
 }
 
 function showTemperature(response) {
+  console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector(
     "#temperature-value"
