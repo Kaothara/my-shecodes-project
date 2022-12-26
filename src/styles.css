@@ -10,9 +10,19 @@ h1 {
   font-size: 25px;
   font-weight: 100;
   color: #69635a;
+  margin-bottom: 0;
 }
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+}
+strong {
+  color: rgb(33, 33, 33);
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 200px;
 }
 button {
   background: blueviolet;
@@ -28,4 +38,13 @@ button {
 button:hover {
   background: #69635a;
   cursor: pointer;
+}
+
+.detail {
+  margin-bottom: 20px;
+}
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }

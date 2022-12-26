@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="src/styles.css" />
     <title>Week 6 Git</title>
   </head>
-
   <body>
     <div class="container">
       <div id="app">
@@ -44,15 +43,23 @@
           </div>
         </form>
         <button>current Location</button>
-        <h1 id="city">New York</h1>
-        <ul>
-          <li><span id="date-display"> Mon: 21:00 </span></li>
-          <li>Cloudy</li>
-        </ul>
+        <div class="detail">
+          <h1 id="city">New York</h1>
+          <ul>
+            <li><span id="date-display"> Mon: 21:00 </span></li>
+            <li>Cloudy</li>
+          </ul>
+        </div>
         <div class="row">
-          <div class="col-6" id="temperature-value">
-            🌈 19 <a href="#" id="celcius-value"> °C</a> |
-            <a href="#" id="fahrenheit-value">°F</a>
+          <div class="col-6" class="temperature" id="temperature-value">
+            <div class="clearfix">
+              <strong>🌈 19</strong
+              ><a href="#" id="celcius-value" class="float-left"> °C</a>|<a
+                href="#"
+                id="fahrenheit-value"
+                >°F</a
+              >
+            </div>
           </div>
           <div class="col-6">
             <ul>
