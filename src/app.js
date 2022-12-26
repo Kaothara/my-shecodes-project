@@ -8,26 +8,10 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-let year = now.getFullYear();
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let day = days[now.getDay()];
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-let month = months[now.getMonth()];
-let dateSpan = document.querySelector("span");
-dateSpan.innerHTML = `${day} ${month} ${date}, ${hours} : ${minutes}, ${year}`;
+let dateSpan = document.querySelector("#date-display");
+dateSpan.innerHTML = `${day}, ${hours} : ${minutes}`;
 
 function citySearch(event) {
   event.preventDefault();

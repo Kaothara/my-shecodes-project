@@ -1,15 +1,15 @@
 body {
   font-family: sans-serif;
   max-width: 600px;
-  border: 600px;
-  border-radius: 10px;
-}
-.app {
   border: 1px solid #dadde1;
+  border-radius: 15px;
   padding: 15px;
   margin: 20px auto;
-  border-radius: 10px;
-  max-width: 600px;
+}
+h1 {
+  font-size: 25px;
+  font-weight: 100;
+  color: #69635a;
 }
 ul {
   list-style: none;
