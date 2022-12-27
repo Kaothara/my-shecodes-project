@@ -13,15 +13,22 @@ let day = days[now.getDay()];
 let dateSpan = document.querySelector("#date-display");
 dateSpan.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function citySearch(event) {
-  event.preventDefault();
-  let cityName = document.querySelector("#city");
-  let cityNameSearch = document.querySelector("#city-input");
-
-  cityName.innerHTML = cityNameSearch.value;
+function search(city) {
+  let apiKey = "76041d9a817d8a03463272c365662edd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76041d9a817d8a03463272c365662edd&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
 }
-let newCity = document.querySelector("#city-search");
-newCity.addEventListener("submit", citySearch);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -57,12 +64,8 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-let city = "Ibadan";
-let apiKey = "76041d9a817d8a03463272c365662edd";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76041d9a817d8a03463272c365662edd&units=metric`;
-axios.get(apiUrl).then(showTemperature);
-function searchCity(city) {}
 
 function citySearchForm(event) {
   event.preventDefault();
