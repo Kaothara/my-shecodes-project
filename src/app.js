@@ -46,15 +46,21 @@ function showTemperature(response) {
   cityName.innerHTML = response.data.name;
   let temperatureValue = document.querySelector("#temperature-value");
   temperatureValue.innerHTML = Math.round(response.data.main.temp);
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
+let city = "Ibadan";
 let apiKey = "76041d9a817d8a03463272c365662edd";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=76041d9a817d8a03463272c365662edd&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76041d9a817d8a03463272c365662edd&units=metric`;
 axios.get(apiUrl).then(showTemperature);
 function searchCity(city) {}
 
