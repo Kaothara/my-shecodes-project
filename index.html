@@ -9,11 +9,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/0e230c45dc.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Week 6 Git</title>
   </head>
@@ -47,18 +43,22 @@
           <h1 id="city">New York</h1>
           <ul>
             <li><span id="date-display"> Mon: 21:00 </span></li>
-            <li>Cloudy</li>
+            <li>
+              <span id="description"> Cloudy </span>
+            </li>
           </ul>
         </div>
         <div class="row">
-          <div class="col-6" class="temperature" id="temperature-value">
+          <div class="col-6" class="temperature">
             <div class="clearfix">
-              <strong>🌈 19</strong
-              ><a href="#" id="celcius-value" class="float-left"> °C</a>|<a
-                href="#"
-                id="fahrenheit-value"
-                >°F</a
-              >
+              <strong id="temperature-value">🌈 19</strong>
+              <small class="units">
+                <a href="#" id="celcius-value" class="float-left"> °C</a>|<a
+                  href="#"
+                  id="fahrenheit-value"
+                  >°F</a
+                >
+              </small>
             </div>
           </div>
           <div class="col-6">

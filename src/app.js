@@ -11,7 +11,7 @@ if (minutes < 10) {
 let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let day = days[now.getDay()];
 let dateSpan = document.querySelector("#date-display");
-dateSpan.innerHTML = `${day}, ${hours} : ${minutes}`;
+dateSpan.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function citySearch(event) {
   event.preventDefault();
@@ -42,7 +42,6 @@ celciusValue.addEventListener("click", convertToCelcius);
 //API Challenge
 
 function showTemperature(response) {
-  console.log(response);
   let cityName = document.querySelector("#city");
   cityName.innerHTML = response.data.name;
   let temperatureValue = document.querySelector("#temperature-value");
@@ -54,13 +53,10 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
 }
-
-function searchCity(city) {
-  let apiKey = "76041d9a817d8a03463272c365662edd";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76041d9a817d8a03463272c365662edd&units=metric
-`;
-  axios.get(apiUrl).then(showTemperature);
-}
+let apiKey = "76041d9a817d8a03463272c365662edd";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=76041d9a817d8a03463272c365662edd&units=metric`;
+axios.get(apiUrl).then(showTemperature);
+function searchCity(city) {}
 
 function citySearchForm(event) {
   event.preventDefault();
@@ -70,8 +66,8 @@ function citySearchForm(event) {
 
 function showLocation(position) {
   let apiKey = "76041d9a817d8a03463272c365662edd";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
+  axios.get(apiUrlLocation).then(showTemperature);
 }
 
 function getCurrentLocation(event) {
