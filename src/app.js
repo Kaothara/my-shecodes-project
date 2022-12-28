@@ -15,24 +15,26 @@ dateSpan.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitValue = (celciusValue * 9) / 5 + 32;
   let temperatureValue = document.querySelector("#temperature-value");
+  celciusValue.classList.remove("active");
+  fahrenheitValue.classList.add("active");
+
+  let fahrenheitValue = (celciusValue * 9) / 5 + 32;
   temperatureValue.innerHTML = fahrenheitValue;
 }
 
 function convertToCelcious(event) {
   event.preventDefault();
   let temperatureValue = document.querySelector("#temperature-value");
+  celciusValue.classList.add("active");
+  fahrenheitValue.classList.remove("active");
+
   temperatureValue.innerHTML = Math.round(celciusValue);
 }
-let celciusValue = null;
-
-let fahrenheitValue = document.querySelector("#fahrenheit-value");
-fahrenheitValue.addEventListener("click", convertToFahrenheit);
 
 function search(city) {
   let apiKey = "76041d9a817d8a03463272c365662edd";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=76041d9a817d8a03463272c365662edd&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -42,10 +44,6 @@ function searchCityForm(event) {
   search(cityInputElement.value);
 }
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", searchCityForm);
-
-search("New York");
 //API Challenge
 
 function showTemperature(response) {
@@ -69,17 +67,15 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+let celciusTemperature = null;
 
-function showLocation(position) {
-  let apiKey = "76041d9a817d8a03463272c365662edd";
-  let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
-  axios.get(apiUrlLocation).then(showTemperature);
-}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", searchCityForm);
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(showLocation);
-}
+let fahrenheitValue = document.querySelector("#fahrenheit-value");
+fahrenheitValue.addEventListener("click", convertToFahrenheit);
 
-let button = document.querySelector("button");
-button.addEventListener("click", getCurrentLocation);
+let celciusValue = document.querySelector("#celcius-value");
+celciusValue.addEventListener("click", convertToCelcius);
+
+search("New York");
