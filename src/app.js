@@ -20,10 +20,10 @@ function convertToFahrenheit(event) {
   fahrenheitValue.classList.add("active");
 
   let fahrenheitValue = (celciusValue * 9) / 5 + 32;
-  temperatureValue.innerHTML = fahrenheitValue;
+  temperatureValue.innerHTML = Math.round(fahrenheitValue);
 }
 
-function convertToCelcious(event) {
+function convertToCelcius(event) {
   event.preventDefault();
   let temperatureValue = document.querySelector("#temperature-value");
   celciusValue.classList.add("active");
@@ -33,7 +33,7 @@ function convertToCelcious(event) {
 }
 
 function search(city) {
-  let apiKey = "76041d9a817d8a03463272c365662edd";
+  let apiKey = "eeb543959b96f2d364dd7eaa645a931c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
@@ -43,8 +43,6 @@ function searchCityForm(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-
-//API Challenge
 
 function showTemperature(response) {
   let cityName = document.querySelector("#city");
@@ -58,8 +56,6 @@ function showTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-
-  let celciusValue = response.data.main.temp;
 
   iconElement.setAttribute(
     "src",
