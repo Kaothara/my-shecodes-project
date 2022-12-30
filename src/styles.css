@@ -42,6 +42,6 @@ strong {
   cursor: default;
 }
 
-.weather-temperature .active:hover {
+.active:hover {
   text-decoration: none;
 }
