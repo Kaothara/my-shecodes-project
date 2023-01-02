@@ -1,8 +1,9 @@
 body {
   font-family: sans-serif;
   max-width: 600px;
-  border: 1px solid #dadde1;
+  border: 10px solid #bcdbdf;
   border-radius: 15px;
+  background-color: #dde0ab;
   padding: 15px;
   margin: 20px auto;
 }
