@@ -58,25 +58,6 @@ function showForecast(response) {
   forecastDisplay.innerHTML = forecastHTML;
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureValue = document.querySelector("#temperature-value");
-  celciusValue.classList.remove("active");
-  fahrenheitValue.classList.add("active");
-
-  let fahrenheitValue = (celciusValue * 9) / 5 + 32;
-  temperatureValue.innerHTML = Math.round(fahrenheitValue);
-}
-
-function convertToCelcius(event) {
-  event.preventDefault();
-  let temperatureValue = document.querySelector("#temperature-value");
-  celciusValue.classList.add("active");
-  fahrenheitValue.classList.remove("active");
-
-  temperatureValue.innerHTML = Math.round(celciusValue);
-}
-
 function search(city) {
   let apiKey = "eeb543959b96f2d364dd7eaa645a931c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -92,7 +73,8 @@ function searchCityForm(event) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "eeb543959b96f2d364dd7eaa645a931c";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -117,16 +99,8 @@ function showTemperature(response) {
 
   getForecast(response.data.coord);
 }
-let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCityForm);
 
-let fahrenheitValue = document.querySelector("#fahrenheit-value");
-fahrenheitValue.addEventListener("click", convertToFahrenheit);
-
-let celciusValue = document.querySelector("#celcius-value");
-celciusValue.addEventListener("click", convertToCelcius);
-
-showForecast();
 search("New York");
