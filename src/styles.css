@@ -28,7 +28,18 @@ strong {
   line-height: 1;
   font-weight: 200px;
 }
+.other-days {
+  margin-top: 20px;
+}
 
+.weather-forecast-temperature {
+  font-size: 13px;
+  text-align: center;
+  color: black;
+}
+.forecast-temperature-min {
+  opacity: 0.6;
+}
 .detail {
   margin-bottom: 20px;
 }
